@@ -73,12 +73,15 @@ export const findUserById = (req, res) => {
 	try {
 		User.findById(req.params.id, (error, foundUser) => {
 			if (foundUser) {
-				const { userName, firstName, lastName, email, createdAt } = foundUser;
+				const { userName, firstName, lastName, email, password, createdAt, avatar } = foundUser;
 				return res.json(errorHandler(false, "User found", {
 					user: {
-						userName,
-						name: `${firstName} ${lastName}`,
-						email,
+            userName,
+            firstName,
+            lastName,
+            email,
+            password,
+            avatar, 
 						member_since: createdAt
 					}
 				}))

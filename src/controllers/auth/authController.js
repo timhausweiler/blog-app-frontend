@@ -55,6 +55,7 @@ export const signUpUser = async (req, res) => {
       password: req.body.password,
       confirmPassword: req.body.confirmPassword,
       isAdmin: req.body.isAdmin,
+      avatar:req.body.avatar,
     });
 
     if (newUser) {
