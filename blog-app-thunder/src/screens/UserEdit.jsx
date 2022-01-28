@@ -31,6 +31,7 @@ export default function UserEdit() {
   const handleSubmit = async (event)=>{
     event.preventDefault();
     const fields = input;
+    console.log(fields);
     await axios.put(`http://localhost:3000/api/update/${user.userName}`, {fields});
     setInput(default_input);
     navigate("/");
