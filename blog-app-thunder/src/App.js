@@ -7,10 +7,12 @@ import UserDetail from './screens/UserList';
 function App() {
   return (
     <div className="App">
+      <Link to="/users">Users</Link>
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/api/users" element={<UserList />} />
-        <Route path="/api/user/:id" element={<UserDetail />} />
+        <Route path="/users" element={<UserList />} />
+        <Route path="/user/:id" element={<UserDetail />} />
       </Routes>
     </div>
   );

@@ -7,7 +7,7 @@ const login_input = {
   password: '',
 };
 
-const URL = 'http://localhost:3000/api/';
+const URL = 'http://localhost:3000/';
 
 export default function Home() {
   const [input, setInput] = useState(login_input);
