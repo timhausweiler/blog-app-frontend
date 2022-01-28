@@ -20,6 +20,8 @@ export default function UserList() {
       <p>{user.fields.lastName}</p>
       <p>{user.fields.email}</p>
       <p>{user.fields._id}</p>
+      <button>Placeholder for edit button</button>
+      <button>Placeholder for delete button</button>
     </div>
   )
 }
