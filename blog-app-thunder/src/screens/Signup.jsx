@@ -14,6 +14,7 @@ const default_input = {
 
 export default function Signup() {
   const [input, setInput] = useState(default_input);
+  const navigate = useNavigate();
 
   const handleTextInput = (event) =>{
     const {id, value} = event.target;
