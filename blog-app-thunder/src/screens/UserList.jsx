@@ -7,8 +7,9 @@ export default function UserList() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("/api/users");
-      setUsers(res.data.records);
+      const res = await axios.get("http://localhost:3000/api/users");
+      // console.log(res.data.data)
+      setUsers(res.data.data);
     }
     fetchUsers();
   }, []);
@@ -18,9 +19,9 @@ export default function UserList() {
       <h2>Overview of all users</h2>
       {users.map((user, index) => {
         return (
-          <Link to={`/user/${user.id}`}  key = {index}>
+          <Link to={`/user/${user._id}`}  key = {index}>
             <div>
-              <h3>{user.username}</h3>
+              <h3>{user.userName}</h3>
               <p>{user.email}</p>
             </div>
           </Link>

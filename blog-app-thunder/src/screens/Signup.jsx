@@ -50,6 +50,7 @@ export default function Signup() {
         <input type="text" value={input.name} id='password' onChange={handleTextInput} required/>
         <label htmlFor="confirm-password">Confirm Password</label>
         <input type="text" value={input.name} id='confirm-password' onChange={handleTextInput} required/>
+        <button>Submit</button>
       </form>
     </div>
     );
