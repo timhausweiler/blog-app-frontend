@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function UserList() {
@@ -27,7 +27,7 @@ export default function UserList() {
       <p>{user.name}</p>
       <p>{user.email}</p>
       <p>{user.member_since}</p>
-      <button>Placeholder for edit button</button>
+      <Link to={`/api/update/${user.userName}`}><button>Edit user</button></Link>
       <button onClick = {handleDelete}>Delete user</button>
     </div>
   )
