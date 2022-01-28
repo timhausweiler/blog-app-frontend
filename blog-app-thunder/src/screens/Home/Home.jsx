@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
@@ -14,8 +14,6 @@ export default function Home() {
   const [input, setInput] = useState(login_input);
 
   const navigate = useNavigate();
-
-  useEffect(() => {}, []);
 
   const handleLoginChange = (e) => {
     const { id, value } = e.target;
