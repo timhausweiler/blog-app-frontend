@@ -9,19 +9,19 @@ export default function UserList() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`http://localhost:3000/api/user/${id}`);
-      console.log(id)
-      console.log(res.data);
-      setUser(res.data.data);
+      // console.log(id)
+      // console.log(res.data.data.user);
+      setUser(res.data.data.user);
     }
     fetchUser();
   }, [id]);
 
   return (
     <div>
-      <h2>This is {user.fields?.username}</h2>
-      <p>{user.fields.name}</p>
-      <p>{user.fields.email}</p>
-      <p>{user.fields.member_since}</p>
+      <h2>This is {user.userName}</h2>
+      <p>{user.name}</p>
+      <p>{user.email}</p>
+      <p>{user.member_since}</p>
       <button>Placeholder for edit button</button>
       <button>Placeholder for delete button</button>
     </div>
