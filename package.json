@@ -1,0 +1,34 @@
+{
+	"name": "instructor_examples",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/server.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon src/server.js",
+		"start": "node src/server.js"
+	},
+	"keywords": [],
+	"author": "Leland Shirley",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.19.1",
+		"cookie-parser": "^1.4.6",
+		"dotenv": "^14.3.2",
+		"express": "^4.17.2",
+		"joi": "^17.5.0",
+		"joi-password-complexity": "^5.1.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.1.8"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15",
+		"prettier": "2.5.1"
+	},
+	"engines": {
+		"node": "17.4.0",
+		"npm": "8.3.1"
+	}
+}
