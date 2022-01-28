@@ -7,9 +7,10 @@ import UserDetail from './screens/UserList';
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-      <Home />
+
+    
       <Routes>
+<<<<<<< HEAD
         <Route path="/users" element={<UserList/>}/>
         <Route path="/user/:id" element={<UserDetail/>}/>
 =======
@@ -17,6 +18,13 @@ function App() {
         <Route path="/" element={<Home />} />
 >>>>>>> a100202e999cb7f7f4db69bf0bda0c76b7d2c7ac
       </Routes>
+=======
+      <Route path="/" element={<Home />} />
+        <Route path="/api/users" element={<UserList/>}/>
+        <Route path="/api/user/:id" element={<UserDetail/>}/>
+        </Routes>
+
+>>>>>>> 69b8cdecae1638ef5f1c37850d3ad4fdd92b7333
     </div>
   );
 }
