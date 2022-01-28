@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
@@ -8,14 +8,12 @@ const login_input = {
   password: '',
 };
 
-const URL = 'http://localhost:3000/api/';
+const URL = 'http://localhost:3000/api/login/';
 
 export default function Home() {
   const [input, setInput] = useState(login_input);
 
   const navigate = useNavigate();
-
-  useEffect(() => {}, []);
 
   const handleLoginChange = (e) => {
     const { id, value } = e.target;
@@ -29,10 +27,10 @@ export default function Home() {
     try {
       e.preventDefault();
       const fields = input;
-      await axios.post(`${URL}login`, { fields });
+      await axios.post(`${URL}`, { fields });
 
       setInput(login_input);
-      navigate('/');
+      navigate('/users');
     } catch (error) {
       console.log(error);
     }
@@ -41,10 +39,12 @@ export default function Home() {
   return (
     <div className="login-page">
       <h1>Login</h1>
-      <form className="login-form" onSubmit={handleLoginSubmit}>
+      <form className="login-form">
         <label htmlFor="email">Email</label>
         <input
           autoFocus
+          required
+          type="text"
           id="email"
           value={input.email}
           placeholder="email"
@@ -53,12 +53,14 @@ export default function Home() {
 
         <label htmlFor="password">Password</label>
         <input
+          required
+          type="password"
           id="password"
           value={input.password}
           placeholder="password"
           onChange={handleLoginChange}
         />
-        <button type="submit">Login</button>
+        <button onClick={handleLoginSubmit}>Login</button>
       </form>
     </div>
   );
