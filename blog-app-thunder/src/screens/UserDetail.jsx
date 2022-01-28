@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function UserList() {
   const [user, setUser] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
+  const handleDelete = async () => {
+    await axios.delete(`http://localhost:3000/api/delete/${id}`)
+    navigate("/users")
+  }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,7 +28,7 @@ export default function UserList() {
       <p>{user.email}</p>
       <p>{user.member_since}</p>
       <button>Placeholder for edit button</button>
-      <button>Placeholder for delete button</button>
+      <button onClick = {handleDelete}>Delete user</button>
     </div>
   )
 }
