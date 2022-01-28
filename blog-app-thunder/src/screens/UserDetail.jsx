@@ -27,7 +27,7 @@ export default function UserList() {
       <p>{user.name}</p>
       <p>{user.email}</p>
       <p>{user.member_since}</p>
-      <Link to={`/api/update/${user.userName}`}><button>Edit user</button></Link>
+      <Link to={`/edit/${id}`}><button>Edit user</button></Link>
       <button onClick = {handleDelete}>Delete user</button>
     </div>
   )
