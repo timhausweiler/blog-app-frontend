@@ -10,8 +10,8 @@ function App() {
 <<<<<<< HEAD
       <Home />
       <Routes>
-        <Route path="/api/users" element={<UserList/>}/>
-        <Route path="/api/user/:id" element={<UserDetail/>}/>
+        <Route path="/users" element={<UserList/>}/>
+        <Route path="/user/:id" element={<UserDetail/>}/>
 =======
       <Routes>
         <Route path="/" element={<Home />} />
