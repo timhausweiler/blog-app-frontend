@@ -45,6 +45,7 @@ export default function Home() {
         <label htmlFor="email">Email</label>
         <input
           autoFocus
+          required
           type="text"
           id="email"
           value={input.email}
@@ -54,6 +55,7 @@ export default function Home() {
 
         <label htmlFor="password">Password</label>
         <input
+          required
           type="password"
           id="password"
           value={input.password}
