@@ -5,6 +5,7 @@ import { initMongoServer } from "./db/connection.js";
 import user from "./routes/user.js";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import cors from 'cors'
 // import logger from "morgan";
 
 initMongoServer();
@@ -16,6 +17,7 @@ const db = mongoose.connection;
 // Middleware
 // ============
 app.use(express.json());
+app.use(cors())
 app.use("/api", user);
 app.use(cookieParser());
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));

@@ -8,7 +8,7 @@ const login_input = {
   password: '',
 };
 
-const URL = 'http://localhost:3000/';
+const URL = 'http://localhost:3000/api/';
 
 export default function Home() {
   const [input, setInput] = useState(login_input);
@@ -48,7 +48,7 @@ export default function Home() {
           id="email"
           value={input.email}
           placeholder="email"
-          onClick={handleLoginChange}
+          onChange={handleLoginChange}
         />
 
         <label htmlFor="password">Password</label>
@@ -56,7 +56,7 @@ export default function Home() {
           id="password"
           value={input.password}
           placeholder="password"
-          onClick={handleLoginChange}
+          onChange={handleLoginChange}
         />
         <button type="submit">Login</button>
       </form>
