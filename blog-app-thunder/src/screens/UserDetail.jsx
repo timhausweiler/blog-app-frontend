@@ -7,8 +7,8 @@ export default function UserList() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get("/api/user/:id");
-      setUser(res.data.records);
+      const res = await axios.get("http://localhost:3000/api/user/:id");
+      setUser(res.data.data);
     }
     fetchUser();
   }, []);
