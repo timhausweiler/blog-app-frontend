@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 const login_input = {
   email: '',
@@ -43,6 +44,7 @@ export default function Home() {
       <form className="login-form" onSubmit={handleLoginSubmit}>
         <label htmlFor="email">Email</label>
         <input
+          autoFocus
           id="email"
           value={input.email}
           placeholder="email"
@@ -56,6 +58,7 @@ export default function Home() {
           placeholder="password"
           onClick={handleLoginChange}
         />
+        <button type="submit">Login</button>
       </form>
     </div>
   );
