@@ -26,7 +26,7 @@ export default function Signup() {
   const handleSubmit = async (event)=>{
     event.preventDefault();
     const fields = input;
-    await axios.post("/signup", {fields});
+    await axios.post("http://localhost:3000/api/signup", {fields});
     setInput(default_input);
     navigate("/");
   }
@@ -36,19 +36,19 @@ export default function Signup() {
       <h2>Create New User</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="userName">Username</label>
-        <input type="text" value={input.name} id='userName' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='userName' onChange={handleTextInput} required/>
         <label htmlFor="avatar">Avatar</label>
         <input type="text" value={input.name} id='avatar' onChange={handleTextInput}/>
         <label htmlFor="firstName">First Name</label>
-        <input type="text" value={input.name} id='firstName' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='firstName' onChange={handleTextInput} required/>
         <label htmlFor="lastName">Last Name</label>
-        <input type="text" value={input.name} id='lastName' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='lastName' onChange={handleTextInput} required/>
         <label htmlFor="email">E-mail</label>
-        <input type="text" value={input.name} id='email' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='email' onChange={handleTextInput} required/>
         <label htmlFor="password">Password</label>
-        <input type="text" value={input.name} id='password' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='password' onChange={handleTextInput} required/>
         <label htmlFor="confirm-password">Confirm Password</label>
-        <input type="text" value={input.name} id='confirm-password' onChange={handleTextInput}/>
+        <input type="text" value={input.name} id='confirm-password' onChange={handleTextInput} required/>
       </form>
     </div>
     );
