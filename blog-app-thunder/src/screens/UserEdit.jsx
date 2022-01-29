@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from "axios"
+import Form from '../components/Form/Form';
 
 const default_input = {
   userName: '',
@@ -21,20 +22,20 @@ export default function UserEdit() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`http://localhost:3000/api/user/${id}`);
-      console.log(res.data.data.user);
       setUser(res.data.data.user);
       setInput(res.data.data.user)
     }
     fetchUser();
   }, []);
 
-  const handleSubmit = async (event)=>{
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const fields = input;
+    console.log(`http://localhost:3000/api/update/${user.userName}`)
     console.log(fields);
-    await axios.put(`http://localhost:3000/api/update/${user.userName}`, {fields});
+    await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
     setInput(default_input);
-    navigate("/");
+    navigate("/users");
   }
   
   const handleTextInput = (event) => { 
@@ -47,22 +48,10 @@ export default function UserEdit() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="userName">Username</label>
-        <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required/>
-        <label htmlFor="avatar">Avatar</label>
-        <input type="text" value={input.avatar} id='avatar' onChange={handleTextInput}/>
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" value={input.firstName} id='firstName' onChange={handleTextInput} required/>
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" value={input.lastName} id='lastName' onChange={handleTextInput} required/>
-        <label htmlFor="email">E-mail</label>
-        <input type="text" value={input.email} id='email' onChange={handleTextInput} required/>
-        <label htmlFor="password">Password</label>
-        <input type="text" id='password' onChange={handleTextInput} required/>
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input type="text" id='confirm-password' onChange={handleTextInput} required/>
-        <button>Submit</button>
-      </form>
+      <Form 
+        input={input}
+        handleTextInput={handleTextInput}
+        handleSubmit={handleSubmit}
+      ></Form>
     </div>);
 }
