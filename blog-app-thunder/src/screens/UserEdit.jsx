@@ -14,7 +14,7 @@ const default_input = {
 }
 
 export default function UserEdit() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   const [input, setInput] = useState(default_input);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -28,12 +28,11 @@ export default function UserEdit() {
     fetchUser();
   }, []);
 
-  const handleSubmit = async (event, data) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(data)
     const fields = input;
-    const res = await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
-    setUser({email:res.data.email, userName:res.data.userName});
+    await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
+    setInput(default_input);
     navigate("/users");
   }
   
@@ -47,10 +46,22 @@ export default function UserEdit() {
 
   return (
     <div>
-      <Form 
-        input={input}
-        handleTextInput={handleTextInput}
-        handleSubmit={handleSubmit}
-      ></Form>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="userName">Username</label>
+        <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required />
+        <label htmlFor="avatar">Avatar</label>
+        <input type="text" value={input.avatar} id='avatar' onChange={handleTextInput}/>
+        <label htmlFor="firstName">First Name</label>
+        <input type="text" value={input.firstName} id='firstName' onChange={handleTextInput} required/>
+        <label htmlFor="lastName">Last Name</label>
+        <input type="text" value={input.lastName} id='lastName' onChange={handleTextInput} required/>
+        <label htmlFor="email">E-mail</label>
+        <input type="text" value={input.email} id='email' onChange={handleTextInput} required/>
+        <label htmlFor="password">Password</label>
+        <input type="text" id='password' onChange={handleTextInput} required/>
+        <label htmlFor="confirm-password">Confirm Password</label>
+        <input type="text" id='confirm-password' onChange={handleTextInput} required/>
+        <button>Submit</button>
+      </form>
     </div>);
 }
