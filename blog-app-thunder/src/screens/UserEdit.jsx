@@ -1,11 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import Form from '../components/Form/Form';
 
 const default_input = {
   userName: '',
-		avatar: '',
+		// avatar: '',
 		firstName: '',
 		lastName: '',
 		email: '',
@@ -26,12 +25,15 @@ export default function UserEdit() {
       setInput(res.data.data.user)
     }
     fetchUser();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const fields = input;
-    await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
+    // console.log(input)
+    // console.log(fields)
+    // console.log(`http://localhost:3000/api/update/${user.userName}`)
+    await axios.put(`http://localhost:3000/api/update/${user.userName}`, fields );
     setInput(default_input);
     navigate("/users");
   }
@@ -47,20 +49,30 @@ export default function UserEdit() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="userName">Username</label>
-        <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required />
-        <label htmlFor="avatar">Avatar</label>
-        <input type="text" value={input.avatar} id='avatar' onChange={handleTextInput}/>
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" value={input.firstName} id='firstName' onChange={handleTextInput} required/>
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" value={input.lastName} id='lastName' onChange={handleTextInput} required/>
-        <label htmlFor="email">E-mail</label>
-        <input type="text" value={input.email} id='email' onChange={handleTextInput} required/>
-        <label htmlFor="password">Password</label>
-        <input type="text" id='password' onChange={handleTextInput} required/>
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input type="text" id='confirm-password' onChange={handleTextInput} required/>
+        <label>
+          Username
+          <input type="text" value={input.userName} onChange={handleTextInput} required />
+        </label>
+        <label>
+          First Name
+          <input type="text" value={input.firstName} onChange={handleTextInput} required />
+        </label>
+        <label>
+          Last Name
+          <input type="text" value={input.lastName} onChange={handleTextInput} required />
+        </label>
+        <label>
+          E-mail
+          <input type="text" value={input.email} onChange={handleTextInput} required />
+        </label>
+        <label>
+          Password
+          <input type="text" onChange={handleTextInput} required/>
+        </label>
+        <label>
+          Confirm Password
+          <input type="text" onChange={handleTextInput} required/>
+        </label>
         <button>Submit</button>
       </form>
     </div>);
