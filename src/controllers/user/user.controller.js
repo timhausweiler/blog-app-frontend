@@ -48,7 +48,7 @@ export const deleteUser = (req, res) => {
 };
 
 export const updateUserByUserName = (req, res) => {
-	try {
+  try {
 		User.findOneAndUpdate(
 			{ userName: req.params.userName },
 			req.body,
