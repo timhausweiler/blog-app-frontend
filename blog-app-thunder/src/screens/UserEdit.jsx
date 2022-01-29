@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from "axios"
+import Form from '../components/Form/Form';
 
 const default_input = {
   userName: '',
@@ -21,20 +22,18 @@ export default function UserEdit() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`http://localhost:3000/api/user/${id}`);
-      console.log(res.data.data.user);
       setUser(res.data.data.user);
       setInput(res.data.data.user)
     }
     fetchUser();
   }, []);
 
-  const handleSubmit = async (event)=>{
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const fields = input;
-    console.log(fields);
-    await axios.put(`http://localhost:3000/api/update/${user.userName}`, {fields});
+    await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
     setInput(default_input);
-    navigate("/");
+    navigate("/users");
   }
   
   const handleTextInput = (event) => { 
@@ -49,7 +48,7 @@ export default function UserEdit() {
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="userName">Username</label>
-        <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required/>
+        <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required />
         <label htmlFor="avatar">Avatar</label>
         <input type="text" value={input.avatar} id='avatar' onChange={handleTextInput}/>
         <label htmlFor="firstName">First Name</label>
