@@ -14,7 +14,7 @@ const default_input = {
 }
 
 export default function UserEdit() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [input, setInput] = useState(default_input);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -28,13 +28,12 @@ export default function UserEdit() {
     fetchUser();
   }, []);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, data) => {
     event.preventDefault();
+    console.log(data)
     const fields = input;
-    console.log(`http://localhost:3000/api/update/${user.userName}`)
-    console.log(fields);
-    await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
-    setInput(default_input);
+    const res = await axios.put(`http://localhost:3000/api/update/${user.userName}`, { fields });
+    setUser({email:res.data.email, userName:res.data.userName});
     navigate("/users");
   }
   
