@@ -27,10 +27,15 @@ export default function Home() {
     try {
       e.preventDefault();
       const fields = input;
-      await axios.post(`${URL}`, { fields });
 
-      setInput(login_input);
-      navigate('/users');
+      if (fields === '') {
+        alert('Please fill out all input fields');
+      } else {
+        await axios.post(`${URL}`, { fields });
+
+        setInput(login_input);
+        navigate('/users');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +44,7 @@ export default function Home() {
   return (
     <div className="login-page">
       <h1>Login</h1>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleLoginSubmit}>
         <label htmlFor="email">Email</label>
         <input
           autoFocus
@@ -60,7 +65,7 @@ export default function Home() {
           placeholder="password"
           onChange={handleLoginChange}
         />
-        <button onClick={handleLoginSubmit}>Login</button>
+        <button>Login</button>
       </form>
     </div>
   );
