@@ -68,9 +68,9 @@ export default function Home() {
         <button>Login</button>
       </form>
       <div className="sign-in-link">
-        <h6>
-          Already have an account? Sign in <Link to="/signup">Here</Link>
-        </h6>
+        <h5>
+          Don't have an account? Sign Up <Link to="/signup">Here</Link>
+        </h5>
       </div>
     </div>
   );
