@@ -1,27 +1,50 @@
+.login-page h1 {
+  font-size: xx-large;
+  padding: 20px;
+  margin: 0 auto;
+  text-shadow: 1px 1px yellow;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 2px solid #000;
+  border-radius: 8px;
+  margin: 30px auto;
+  max-width: 400px;
+  padding: 20px;
+  background: #fff;
+  padding: 25px 45px;
 }
 
 .login-form label {
   padding: 5px;
   margin: 5px;
+  font-weight: bold;
+  color: #000;
 }
 
 .login-form input {
   padding: 10px;
   margin: 5px;
   border-radius: 8px;
+  border: 2px solid black;
+  width: 70%;
 }
 
 .login-form button {
   padding: 8px;
-  width: 15%;
+  width: 70%;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 20px;
+  border: 1px solid #000;
+  color: #000;
+  font-weight: bold;
+  font-size: 15px;
+  background: rgb(175, 250, 224);
 }
 
 .login-form button:hover {
