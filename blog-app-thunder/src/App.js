@@ -4,13 +4,12 @@ import Home from './screens/Home/Home';
 import UserList from './screens/UserList';
 import UserDetail from './screens/UserDetail';
 import Signup from './screens/Signup/Signup';
-import Nav from './components/Nav/Nav';
+
 import UserEdit from './screens/UserEdit';
 
 function App() {
   return (
     <div className="App">
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

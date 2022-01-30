@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Home.css';
 
 const login_input = {
@@ -67,6 +67,11 @@ export default function Home() {
         />
         <button>Login</button>
       </form>
+      <div className="sign-in-link">
+        <h6>
+          Already have an account? Sign in <Link to="/signup">Here</Link>
+        </h6>
+      </div>
     </div>
   );
 }
