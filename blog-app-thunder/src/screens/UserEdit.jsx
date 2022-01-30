@@ -30,9 +30,6 @@ export default function UserEdit() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const fields = input;
-    // console.log(input)
-    // console.log(fields)
-    // console.log(`http://localhost:3000/api/update/${user.userName}`)
     await axios.put(`http://localhost:3000/api/update/${user.userName}`, fields );
     setInput(default_input);
     navigate("/users");
@@ -51,27 +48,27 @@ export default function UserEdit() {
       <form onSubmit={handleSubmit}>
         <label>
           Username
-          <input type="text" value={input.userName} onChange={handleTextInput} required />
+          <input type="text" value={input.userName} onChange={handleTextInput} id = "userName" required />
         </label>
         <label>
           First Name
-          <input type="text" value={input.firstName} onChange={handleTextInput} required />
+          <input type="text" value={input.firstName} onChange={handleTextInput} id = "firstName" required />
         </label>
         <label>
           Last Name
-          <input type="text" value={input.lastName} onChange={handleTextInput} required />
+          <input type="text" value={input.lastName} onChange={handleTextInput} id = "lastName" required />
         </label>
         <label>
           E-mail
-          <input type="text" value={input.email} onChange={handleTextInput} required />
+          <input type="text" value={input.email} onChange={handleTextInput} id = "email" required />
         </label>
         <label>
           Password
-          <input type="text" onChange={handleTextInput} required/>
+          <input type="text" onChange={handleTextInput} id = "password" required/>
         </label>
         <label>
           Confirm Password
-          <input type="text" onChange={handleTextInput} required/>
+          <input type="text" onChange={handleTextInput} id = "confirm-password" required/>
         </label>
         <button>Submit</button>
       </form>
