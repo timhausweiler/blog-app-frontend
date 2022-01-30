@@ -9,7 +9,7 @@ export default function UserList() {
   useEffect(() => {
     const fetchUsers = async () => {
       const res = await axios.get('http://localhost:3000/api/users');
-      // console.log(res.data.data)
+      console.log(res.data.data)
       setUsers(res.data.data);
     };
     fetchUsers();
@@ -25,6 +25,7 @@ export default function UserList() {
             <div>
               <h3>{user.userName}</h3>
               <p>{user.email}</p>
+              <img src={user.avatar} alt = "avatar"/>
             </div>
           </Link>
         );
