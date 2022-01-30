@@ -44,8 +44,4 @@ Router.get("/", defaultController)
 	 */
 	.get("/user/:id", findUserById)
 
-
-	
-
-
 export default Router;
