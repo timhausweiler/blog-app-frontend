@@ -1,12 +1,13 @@
 import express from "express";
+import defaultController from "../controllers/defaultController.js";
 import { fetchAllBlogs, deleteBlog, updateBlogById, findBlogById } from "../controllers/blog/blog.controller.js";// BLOG CONTROLLERS
 
-const Router = express.Router();
+const BlogRouter = express.Router();
 
 /**
  * Home Route
  */
-Router.get("/", defaultController)
+BlogRouter.get("/", defaultController)
  
 /**
  * Delete a user(s)

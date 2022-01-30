@@ -28,9 +28,10 @@ export default function Signup() {
   const handleSubmit = async (event)=>{
     event.preventDefault();
     const fields = input;
+    console.log(fields);
     await axios.post("http://localhost:3000/api/signup", fields);
     setInput(default_input);
-    navigate("/");
+    navigate("/users");
   }
 
   return (
