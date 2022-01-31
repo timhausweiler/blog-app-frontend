@@ -1,6 +1,6 @@
 import express from "express";
 import defaultController from "../controllers/defaultController.js";
-import { fetchAllBlogs, deleteBlog, updateBlogById, findBlogById } from "../controllers/blog/blog.controller.js";// BLOG CONTROLLERS
+import { fetchAllBlogs, deleteBlog, updateBlogById, findBlogById, createBlogPost } from "../controllers/blog/blog.controller.js";// BLOG CONTROLLERS
 
 const BlogRouter = express.Router();
 
@@ -17,7 +17,7 @@ BlogRouter.get("/", defaultController)
 /**
  * Get all user(s)
  */
-.get("/users", fetchAllBlogs)
+.get("/posts", fetchAllBlogs)
 
 /**
  * Update user(s)
@@ -27,6 +27,8 @@ BlogRouter.get("/", defaultController)
  * Find 1 user by id
  */
 .get("/user/:id", findBlogById)
+
+.post("/create", createBlogPost)
 	
 
 export default BlogRouter;
