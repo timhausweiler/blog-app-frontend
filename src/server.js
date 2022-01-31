@@ -20,7 +20,7 @@ const db = mongoose.connection;
 app.use(express.json());
 app.use(cors())
 app.use("/api", user);
-app.use("/api", blog);
+app.use("/blog-api", blog);
 app.use(cookieParser());
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));
 // app.use(logger);

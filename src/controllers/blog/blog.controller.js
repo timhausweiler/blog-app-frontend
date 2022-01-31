@@ -48,8 +48,8 @@ export const deleteBlog = (req, res) => {
 
 export const updateBlogById = (req, res) => {
   try {
-		User.findOneAndUpdate(
-			{ id: req.params.id },
+		Blog.findOneAndUpdate(
+			{ _id: req.params.id },
 			req.body,
 			{ new: true }, 
 			(error, updatedBlog) => {
