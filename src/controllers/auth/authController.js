@@ -94,6 +94,7 @@ export const signUpUser = async (req, res) => {
   }
 };
 
+// Login user
 export const loginUser = async (req, res) => {
   try {
     const user = await User.findOne(

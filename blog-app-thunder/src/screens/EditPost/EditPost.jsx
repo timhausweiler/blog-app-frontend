@@ -26,7 +26,7 @@ export default function EditPost() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const fields = input;
-        const res = await axios.put(`kkt-backend.herokuapp.com/blog-api/update/${id}`, fields );
+        const res = await axios.put(`https://kkt-backend.herokuapp.com/blog-api/update/${id}`, fields );
         setInput(default_input);
         navigate("/posts");
       }
