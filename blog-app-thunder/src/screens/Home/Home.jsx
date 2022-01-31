@@ -29,6 +29,7 @@ export default function Home() {
   const handleLoginSubmit = async (e) => {
     try {
       e.preventDefault();
+
       const { email, password } = input;
       const user = { email, password };
 

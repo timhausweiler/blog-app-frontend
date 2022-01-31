@@ -1,13 +1,15 @@
 import "./BlogPosts.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Nav from "../../components/Nav/Nav";
+import { Link } from "react-router-dom";
 
 export default function BlogPosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get('http://localhost:3000/api/posts');
+      const res = await axios.get('http://localhost:3000/blog-api/posts');
       // console.log(res.data.data)
       setPosts(res.data.data);
     };
@@ -16,14 +18,16 @@ export default function BlogPosts() {
 
   return (
     <div>
+      <Nav/>
       <div>
         {posts.map((post, i)=>{
           return(
-            <div key={i}>
-              <h3>{post.userName}</h3>
-              <h4>{post.title}</h4>
-              <p>{post.content}</p>
-            </div>
+            <Link to={`/post/${post._id}`} key={i}>
+              <div>
+                <h3>{post.userName}</h3>
+                <h4>{post.title}</h4>
+              </div>
+            </Link>
           )
         })}
       </div>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Nav from '../components/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -9,6 +9,7 @@ export default function UserList() {
   useEffect(() => {
     const fetchUsers = async () => {
       const res = await axios.get('http://localhost:3000/api/users');
+      console.log(res);
       console.log(res.data.data)
       setUsers(res.data.data);
     };
@@ -19,7 +20,7 @@ export default function UserList() {
     <div>
       <Nav />
       <h2>Overview of all users</h2>
-      {users.map((user, index) => {
+      {users?.map((user, index) => {
         return (
           <Link to={`/user/${user._id}`} key={index}>
             <div>

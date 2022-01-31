@@ -26,7 +26,7 @@ BlogRouter.get("/", defaultController)
 /**
  * Find 1 user by id
  */
-.get("/user/:id", findBlogById)
+.get("/post/:id", findBlogById)
 
 .post("/create", createBlogPost)
 	
