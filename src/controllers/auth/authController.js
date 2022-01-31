@@ -3,6 +3,7 @@ import errorHandler from '../../utilities/error.js';
 import { securePassword } from '../../utilities/securePassword.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import gravatar from 'gravatar';
 import 'dotenv/config';
 
 export const createToken = (id) => {
@@ -47,6 +48,13 @@ export const signUpUser = async (req, res) => {
       return res.json(errorHandler(true, 'A user exists with the credential'));
     }
 
+    // get users avatar using gravatar
+    const avatar = gravatar.url(email, {
+      s: '200',
+      r: 'pg',
+      d: 'mm',
+    });
+
     const newUser = new User({
       userName: req.body.userName,
       firstName: req.body.firstName,
@@ -54,8 +62,8 @@ export const signUpUser = async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       confirmPassword: req.body.confirmPassword,
+      avatar: req.body.avatar,
       isAdmin: req.body.isAdmin,
-      avatar:req.body.avatar,
     });
 
     if (newUser) {
