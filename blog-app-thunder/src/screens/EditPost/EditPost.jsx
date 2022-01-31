@@ -1,19 +1,19 @@
-import "./CreatePost.css";
-import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 import Nav from "../../components/Nav/Nav";
+import "./EditPost.css"
 
 const default_input = {
-    userName: "",
     title: "",
     content: "",
     imgUrl: ""
   }
 
-export default function CreatePost() {
+export default function EditPost() {
     const [input, setInput] = useState(default_input);
-    let navigate = useNavigate();
+    const { id } = useParams();
+    const navigate = useNavigate();
 
     const handleTextInput = (event) =>{
         const {id, value} = event.target;
@@ -23,21 +23,18 @@ export default function CreatePost() {
         }))
     }
 
-    const handleSubmit = async (event)=>{
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const fields = input;
-        console.log(fields);
-        await axios.post("http://localhost:3000/blog-api/create", fields);
+        const res = await axios.put(`http://localhost:3000/blog-api/update/${id}`, fields );
         setInput(default_input);
         navigate("/posts");
       }
 
   return (
-      <div>
+    <div>
         <Nav/>
-        <form onSubmit={handleSubmit} id="postForm">
-            <label htmlFor="userName">Username</label>
-            <input type="text" value={input.userName} id='userName' onChange={handleTextInput} required/>
+        <form onSubmit={handleSubmit} id="editForm">
             <label htmlFor="imgUrl">Thumbnail</label>
             <input type="text" value={input.imgUrl} id='imgUrl' onChange={handleTextInput}/>
             <label htmlFor="title">Title</label>
@@ -46,6 +43,6 @@ export default function CreatePost() {
             <textarea type="text" value={input.content} id='content' onChange={handleTextInput} required/>
             <button>Submit</button>
         </form>
-      </div>
-  )
+    </div>
+    );
 }
