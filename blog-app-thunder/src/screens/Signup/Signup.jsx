@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios"
 import {useNavigate} from "react-router-dom";
 import "./Signup.css"
+import Nav from '../../components/Nav/Nav';
 
 const default_input = {
   userName: '',
@@ -36,6 +37,7 @@ export default function Signup() {
 
   return (
     <div id='page'>
+      <Nav/>
       <h2>Create New User</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="userName">Username</label>

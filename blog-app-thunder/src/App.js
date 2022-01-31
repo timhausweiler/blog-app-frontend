@@ -8,6 +8,8 @@ import Signup from './screens/Signup/Signup';
 import UserEdit from './screens/UserEdit';
 import CreatePost from './screens/CreatePost/CreatePost';
 import BlogPosts from './screens/BlogPosts/BlogPosts';
+import BlogPost from './screens/BlogPost/BlogPost';
+import EditPost from './screens/EditPost/EditPost';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/users" element={<UserList />} />
         <Route path="/create" element={<CreatePost/>}/>
         <Route path="/posts" element={<BlogPosts/>}/>
+        <Route path="/post/:id" element={<BlogPost/>}/>
+        <Route path="/edit-post/:id" element={<EditPost/>}/>
       </Routes>
     </div>
   );
