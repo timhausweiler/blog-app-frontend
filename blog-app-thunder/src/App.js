@@ -1,11 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './screens/Home/Home';
-import UserList from './screens/UserList';
-import UserDetail from './screens/UserDetail';
+import UserList from './screens/UserList/UserList';
+import UserDetail from './screens/UserDetail/UserDetail';
 import Signup from './screens/Signup/Signup';
-
-import UserEdit from './screens/UserEdit';
+import UserEdit from './screens/UserEdit/UserEdit';
 import CreatePost from './screens/CreatePost/CreatePost';
 import BlogPosts from './screens/BlogPosts/BlogPosts';
 import BlogPost from './screens/BlogPost/BlogPost';

@@ -27,6 +27,9 @@ export default function Home() {
     try {
       e.preventDefault();
       const fields = input;
+      await axios.post(`${URL}`, { fields });
+      setInput(login_input);
+
 
       const res = await axios.post(`${URL}`, fields);
 
