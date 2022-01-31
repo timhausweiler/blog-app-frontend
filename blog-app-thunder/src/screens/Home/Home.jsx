@@ -28,14 +28,11 @@ export default function Home() {
       e.preventDefault();
       const fields = input;
 
-      if (fields === '') {
-        alert('Please fill out all input fields');
-      } else {
-        await axios.post(`${URL}`, { fields });
+      const res = await axios.post(`${URL}`, fields);
 
-        setInput(login_input);
-        navigate('/users');
-      }
+      console.log(res.data);
+
+      navigate('/users');
     } catch (error) {
       console.log(error);
     }
