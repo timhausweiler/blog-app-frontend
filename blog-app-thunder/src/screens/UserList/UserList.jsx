@@ -8,7 +8,7 @@ export default function UserList() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get('http://localhost:3000/api/users');
+      const res = await axios.get('kkt-backend.herokuapp.com/api/users');
       console.log(res);
       console.log(res.data.data)
       setUsers(res.data.data);
