@@ -27,16 +27,14 @@ export default function Home() {
     try {
       e.preventDefault();
       const fields = input;
-<<<<<<< HEAD
       await axios.post(`${URL}`, { fields });
       setInput(login_input);
-=======
+
 
       const res = await axios.post(`${URL}`, fields);
 
       console.log(res.data);
 
->>>>>>> cb8f74d470e80f3b1dcdcb2cf9445e5a5f82ded2
       navigate('/users');
     } catch (error) {
       console.log(error);
