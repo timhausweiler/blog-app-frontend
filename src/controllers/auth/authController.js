@@ -3,7 +3,7 @@ import errorHandler from '../../utilities/error.js';
 import { securePassword } from '../../utilities/securePassword.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import gravatar from 'gravatar';
+// import gravatar from 'gravatar';
 import 'dotenv/config';
 
 export const createToken = (id) => {
@@ -49,11 +49,11 @@ export const signUpUser = async (req, res) => {
     }
 
     // get users avatar using gravatar
-    const avatar = gravatar.url(email, {
-      s: '200',
-      r: 'pg',
-      d: 'mm',
-    });
+    // const avatar = gravatar.url(email, {
+    //   s: '200',
+    //   r: 'pg',
+    //   d: 'mm',
+    // });
 
     const newUser = new User({
       userName: req.body.userName,

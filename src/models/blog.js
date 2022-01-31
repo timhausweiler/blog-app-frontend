@@ -10,6 +10,6 @@ const blogSchema = mongoose.Schema(
 	{ timestamps: true }
 );
 
-const Blog = mongoose.model("blogs", blogSchema);
+const Blog = mongoose.model("posts", blogSchema);
 
 export default Blog;

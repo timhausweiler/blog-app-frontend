@@ -91,3 +91,30 @@ export const findBlogById = (req, res) => {
 		res.json(errorHandler(true, "Trouble finding blog"))
 	}
 }
+
+export const createBlogPost = async (req, res) => {
+	try {
+	  const newPost = new Blog({
+		userName: req.body.userName,
+		title: req.body.title,
+		content: req.body.content,
+		imgUrl: req.body.imgUrl
+	  });
+  
+	  if (newPost) {  
+		res.json(
+		  errorHandler(
+			false,
+			`${newPost.userName.toUpperCase()} has created a blog post!`,
+			{ post: newPost._id }
+		  )
+		);
+		await newPost.save();  
+	  } else {
+		return res.json(errorHandler(true, 'Error creating blog post'));
+	  }
+	} catch (error) {
+	  console.error(error.message);
+	  return res.json(errorHandler(true, 'Error creating blog post'));
+	}
+  };

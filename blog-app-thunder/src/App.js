@@ -6,6 +6,8 @@ import UserDetail from './screens/UserDetail';
 import Signup from './screens/Signup/Signup';
 
 import UserEdit from './screens/UserEdit';
+import CreatePost from './screens/CreatePost/CreatePost';
+import BlogPosts from './screens/BlogPosts/BlogPosts';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/user/:id" element={<UserDetail />} />
         <Route path="/edit/:id" element={<UserEdit />} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/create" element={<CreatePost/>}/>
+        <Route path="/posts" element={<BlogPosts/>}/>
       </Routes>
     </div>
   );
