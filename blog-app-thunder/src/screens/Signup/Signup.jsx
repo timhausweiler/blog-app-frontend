@@ -30,7 +30,7 @@ export default function Signup() {
     const fields = input;
     await axios.post("http://localhost:3000/api/signup", fields);
     setInput(default_input);
-    navigate("/");
+    navigate("/users");
   }
 
   return (
