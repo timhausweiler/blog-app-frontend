@@ -10,13 +10,13 @@ export default function BlogPost() {
     const navigate = useNavigate();
 
     const handleDelete = async () => {
-        await axios.delete(`kkt-backend.herokuapp.com/blog-api/delete/${id}`)
+        await axios.delete(`https://kkt-backend.herokuapp.com/blog-api/delete/${id}`)
         navigate("/posts")
       }
 
     useEffect(() => {
         const fetchPost = async()=>{
-            const res = await axios.get(`kkt-backend.herokuapp.com/blog-api/post/${id}`);
+            const res = await axios.get(`https://kkt-backend.herokuapp.com/blog-api/post/${id}`);
             setPost(res.data.data.user);
         }
         fetchPost();

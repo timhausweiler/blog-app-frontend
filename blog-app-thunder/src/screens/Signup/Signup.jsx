@@ -30,7 +30,7 @@ export default function Signup() {
     event.preventDefault();
     const fields = input;
     console.log(fields);
-    await axios.post("kkt-backend.herokuapp.com/api/signup", fields);
+    await axios.post("https://kkt-backend.herokuapp.com/api/signup", fields);
     setInput(default_input);
     navigate("/users");
   }

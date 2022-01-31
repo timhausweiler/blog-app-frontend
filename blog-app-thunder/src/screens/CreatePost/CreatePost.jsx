@@ -27,7 +27,7 @@ export default function CreatePost() {
         event.preventDefault();
         const fields = input;
         console.log(fields);
-        await axios.post("kkt-backend.herokuapp.com/blog-api/create", fields);
+        await axios.post("https://kkt-backend.herokuapp.com/blog-api/create", fields);
         setInput(default_input);
         navigate("/posts");
       }
