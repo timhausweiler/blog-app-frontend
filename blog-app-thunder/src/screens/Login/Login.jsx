@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './Home.css';
-
+import './Login.css';
 import Nav from '../../components/Nav/Nav';
 
 const login_input = {
