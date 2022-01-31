@@ -13,15 +13,20 @@
 	"author": "Leland Shirley",
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^0.25.0",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.19.1",
 		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
 		"dotenv": "^14.3.2",
 		"express": "^4.17.2",
+		"gravatar": "^1.8.2",
 		"joi": "^17.5.0",
 		"joi-password-complexity": "^5.1.0",
 		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^6.1.8"
+		"mongoose": "^6.1.8",
+		"react-router-dom": "^6.2.1",
+		"react-scripts": "^5.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.15",
