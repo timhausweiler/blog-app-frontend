@@ -8,7 +8,7 @@ const login_input = {
   password: '',
 };
 
-const URL = 'http://localhost:3000/api/login/';
+const URL = 'kkt-backend.herokuapp.com/api/login/';
 
 export default function Home() {
   const [input, setInput] = useState(login_input);
