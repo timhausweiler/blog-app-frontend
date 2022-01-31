@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Home.css';
 
@@ -14,6 +14,16 @@ export default function Home() {
   const [input, setInput] = useState(login_input);
 
   const navigate = useNavigate();
+
+  // check if user logged in
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('email');
+    if (loggedInUser) {
+      const foundUser = loggedInUser;
+      console.log(foundUser);
+      setInput(foundUser);
+    }
+  }, []);
 
   const handleLoginChange = (e) => {
     const { id, value } = e.target;
@@ -30,12 +40,21 @@ export default function Home() {
 
       const res = await axios.post(`${URL}`, fields);
 
-      console.log(res.data);
+      const value = res.data.data.user;
+      // store user in local storage
+      storeUser(value);
+      console.log(value);
 
       navigate('/users');
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // local storage
+  const storeUser = (value) => {
+    localStorage.setItem('email', value.email);
+    localStorage.setItem('password', value.password);
   };
 
   return (
