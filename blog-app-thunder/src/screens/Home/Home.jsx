@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Home.css';
-import Logout from '../../components/Logout/Logout';
+
 import Nav from '../../components/Nav/Nav';
 
 const login_input = {
@@ -14,7 +14,6 @@ const URL = 'http://localhost:3000/api/login/';
 
 export default function Home() {
   const [input, setInput] = useState(login_input);
-  const [user, setUser] = useState();
 
   const navigate = useNavigate();
 
@@ -30,17 +29,17 @@ export default function Home() {
     try {
       e.preventDefault();
 
-      const { email, password } = input;
-      const user = { email, password };
+      // const { email, password } = input;
+      // const user = { email, password };
 
-      const res = await axios.post(`${URL}`, user);
+      const res = await axios.post(`${URL}`, input);
 
       const value = res.data.data.user;
 
       // store user in local storage
       localStorage.setItem('user', value.email);
       console.log(value);
-      console.log(user);
+      console.log(input);
 
       navigate('/users');
     } catch (error) {
@@ -54,17 +53,17 @@ export default function Home() {
     if (loggedInUser) {
       const foundUser = loggedInUser;
       console.log(foundUser);
-      setUser(foundUser);
+      setInput(foundUser);
     }
   }, []);
 
-  if (user) {
+  if (localStorage.getItem('user') !== null) {
     return (
       <div>
-        <Nav />
-        <Logout user={user} setUser={setUser} />
+        <Nav setInput={setInput} />
+
         <h2>
-          {user.email} is currently logged in, please navigate to another page
+          {input.email} is currently logged in, please navigate to another page
         </h2>
       </div>
     );
