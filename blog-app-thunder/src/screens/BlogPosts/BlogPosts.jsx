@@ -9,7 +9,7 @@ export default function BlogPosts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get('http://localhost:3000/blog-api/posts');
+      const res = await axios.get('kkt-backend.herokuapp.com/blog-api/posts');
       // console.log(res.data.data)
       setPosts(res.data.data);
     };

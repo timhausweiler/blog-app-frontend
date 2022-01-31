@@ -21,7 +21,7 @@ export default function UserEdit() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`http://localhost:3000/api/user/${id}`);
+      const res = await axios.get(`kkt-backend.herokuapp.com/api/user/${id}`);
       setUser(res.data.data.user);
       setInput(res.data.data.user);
     };
@@ -31,10 +31,12 @@ export default function UserEdit() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const fields = input;
+
     await axios.put(
-      `http://localhost:3000/api/update/${user.userName}`,
+      `kkt-backend.herokuapp.com/api/update/${user.userName}`,
       fields
     );
+
     setInput(default_input);
     navigate('/users');
   };
