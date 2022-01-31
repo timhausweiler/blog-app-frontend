@@ -8,13 +8,14 @@ export default function UserList() {
   const { id } = useParams();
   const navigate = useNavigate();
   const handleDelete = async () => {
-    await axios.delete(`kkt-backend.herokuapp.com/api/delete/${id}`);
-    navigate('/users');
-  };
+    await axios.delete(`https://kkt-backend.herokuapp.com/api/delete/${id}`)
+    navigate("/users")
+  }
+
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`kkt-backend.herokuapp.com/api/user/${id}`);
+      const res = await axios.get(`https://kkt-backend.herokuapp.com/api/user/${id}`);
       // console.log(id)
       // console.log(res.data.data.user);
       setUser(res.data.data.user);
