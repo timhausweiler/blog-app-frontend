@@ -29,9 +29,6 @@ export default function Home() {
     try {
       e.preventDefault();
 
-      // const { email, password } = input;
-      // const user = { email, password };
-
       const res = await axios.post(`${URL}`, input);
 
       const value = res.data.data.user;
@@ -57,6 +54,7 @@ export default function Home() {
     }
   }, []);
 
+  //if user is stored in localstorage
   if (localStorage.getItem('user') !== null) {
     return (
       <div>
@@ -68,6 +66,7 @@ export default function Home() {
       </div>
     );
   } else {
+    //if no user stored in local storage
     return (
       <div className="login-page">
         <h1>Login</h1>
